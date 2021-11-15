@@ -162,5 +162,8 @@ struct PreferencesContentView_Previews: PreviewProvider {
 	static var previews: some View {
 		PreferencesContentView()
 			.previewLayout(.fixed(width: UIFloat(600), height: UIFloat(480)))
+        
+        PreferencesContentView2()
+            .previewLayout(.fixed(width: UIFloat(600), height: UIFloat(480)))
 	}
 }
