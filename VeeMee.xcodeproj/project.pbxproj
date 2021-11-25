@@ -49,7 +49,7 @@
 		B0885E9D266BB4A800E8312E /* AppKitIntegration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppKitIntegration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0885EA0266BB4A800E8312E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0885EA5266BB4B400E8312E /* AppKitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitController.swift; sourceTree = "<group>"; };
-		B0A17030266B112400FD93F1 /* CatalystPrefsWindow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatalystPrefsWindow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0A17030266B112400FD93F1 /* VeeMee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeeMee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A17033266B112400FD93F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0A17035266B112400FD93F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B0A17037266B112400FD93F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		B0A1703C266B112500FD93F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0A1703F266B112500FD93F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0A17041266B112500FD93F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0A17047266B112A00FD93F1 /* CatalystPrefsWindow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatalystPrefsWindow.entitlements; sourceTree = "<group>"; };
+		B0A17047266B112A00FD93F1 /* VeeMee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VeeMee.entitlements; sourceTree = "<group>"; };
 		B0A17048266B113B00FD93F1 /* PreferencesSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesSceneDelegate.swift; sourceTree = "<group>"; };
 		B0A1704B266B116900FD93F1 /* PreferencesContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesContentView.swift; sourceTree = "<group>"; };
 		B0A1704D266B11B400FD93F1 /* Number+Scaling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Scaling.swift"; sourceTree = "<group>"; };
@@ -82,6 +82,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		171980D927432DD4008AD550 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		17A192F02742EF1200DA392A /* Monitors */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A17050266B261A00FD93F1 /* README.md */,
-				B0A17032266B112400FD93F1 /* CatalystPrefsWindow */,
+				B0A17032266B112400FD93F1 /* VeeMee */,
 				B0885E9E266BB4A800E8312E /* AppKitIntegration */,
 				B0A17031266B112400FD93F1 /* Products */,
 			);
@@ -112,17 +119,18 @@
 		B0A17031266B112400FD93F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0A17030266B112400FD93F1 /* CatalystPrefsWindow.app */,
+				B0A17030266B112400FD93F1 /* VeeMee.app */,
 				B0885E9D266BB4A800E8312E /* AppKitIntegration.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B0A17032266B112400FD93F1 /* CatalystPrefsWindow */ = {
+		B0A17032266B112400FD93F1 /* VeeMee */ = {
 			isa = PBXGroup;
 			children = (
+				171980D927432DD4008AD550 /* Helpers */,
 				17A192F02742EF1200DA392A /* Monitors */,
-				B0A17047266B112A00FD93F1 /* CatalystPrefsWindow.entitlements */,
+				B0A17047266B112A00FD93F1 /* VeeMee.entitlements */,
 				B0A1704D266B11B400FD93F1 /* Number+Scaling.swift */,
 				B0A17033266B112400FD93F1 /* AppDelegate.swift */,
 				B0A1704F266B215C00FD93F1 /* Main Window */,
@@ -132,7 +140,7 @@
 				B0A17041266B112500FD93F1 /* Info.plist */,
 				B0A1703B266B112500FD93F1 /* Preview Content */,
 			);
-			path = CatalystPrefsWindow;
+			path = VeeMee;
 			sourceTree = "<group>";
 		};
 		B0A1703B266B112500FD93F1 /* Preview Content */ = {
@@ -192,9 +200,9 @@
 			productReference = B0885E9D266BB4A800E8312E /* AppKitIntegration.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B0A1702F266B112400FD93F1 /* CatalystPrefsWindow */ = {
+		B0A1702F266B112400FD93F1 /* VeeMee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0A17044266B112500FD93F1 /* Build configuration list for PBXNativeTarget "CatalystPrefsWindow" */;
+			buildConfigurationList = B0A17044266B112500FD93F1 /* Build configuration list for PBXNativeTarget "VeeMee" */;
 			buildPhases = (
 				B0A1702C266B112400FD93F1 /* Sources */,
 				B0A1702D266B112400FD93F1 /* Frameworks */,
@@ -206,9 +214,9 @@
 			dependencies = (
 				B0885EA8266BB50500E8312E /* PBXTargetDependency */,
 			);
-			name = CatalystPrefsWindow;
+			name = VeeMee;
 			productName = CatalystPrefsWindow;
-			productReference = B0A17030266B112400FD93F1 /* CatalystPrefsWindow.app */;
+			productReference = B0A17030266B112400FD93F1 /* VeeMee.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +237,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B0A1702B266B112400FD93F1 /* Build configuration list for PBXProject "CatalystPrefsWindow" */;
+			buildConfigurationList = B0A1702B266B112400FD93F1 /* Build configuration list for PBXProject "VeeMee" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -242,7 +250,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0A1702F266B112400FD93F1 /* CatalystPrefsWindow */,
+				B0A1702F266B112400FD93F1 /* VeeMee */,
 				B0885E9C266BB4A800E8312E /* AppKitIntegration */,
 			);
 		};
@@ -496,12 +504,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CatalystPrefsWindow/CatalystPrefsWindow.entitlements;
+				CODE_SIGN_ENTITLEMENTS = VeeMee/VeeMee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CatalystPrefsWindow/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"VeeMee/Preview Content\"";
 				DEVELOPMENT_TEAM = 7M4CBUW6C4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CatalystPrefsWindow/Info.plist;
+				INFOPLIST_FILE = VeeMee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,12 +528,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CatalystPrefsWindow/CatalystPrefsWindow.entitlements;
+				CODE_SIGN_ENTITLEMENTS = VeeMee/VeeMee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CatalystPrefsWindow/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"VeeMee/Preview Content\"";
 				DEVELOPMENT_TEAM = 7M4CBUW6C4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CatalystPrefsWindow/Info.plist;
+				INFOPLIST_FILE = VeeMee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,7 +559,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0A1702B266B112400FD93F1 /* Build configuration list for PBXProject "CatalystPrefsWindow" */ = {
+		B0A1702B266B112400FD93F1 /* Build configuration list for PBXProject "VeeMee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0A17042266B112500FD93F1 /* Debug */,
@@ -558,7 +568,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0A17044266B112500FD93F1 /* Build configuration list for PBXNativeTarget "CatalystPrefsWindow" */ = {
+		B0A17044266B112500FD93F1 /* Build configuration list for PBXNativeTarget "VeeMee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0A17045266B112500FD93F1 /* Debug */,
