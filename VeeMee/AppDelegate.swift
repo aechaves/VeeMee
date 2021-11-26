@@ -58,6 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		#if targetEnvironment(macCatalyst)
 		AppDelegate.loadAppKitIntegrationFramework()
 		#endif
+        
+        // Load bookmarks
+        loadBookmark(named: "idleImage1Bookmark", urlKey: "idleImage1")
+        loadBookmark(named: "talkingImage1Bookmark", urlKey: "talkingImage1")
+        loadBookmark(named: "loudImage1Bookmark", urlKey: "loudImage1")
+        
 		
 		return true
 	}
@@ -97,5 +103,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let userActivity = NSUserActivity(activityType: "com.example.preferences")
 		UIApplication.shared.requestSceneSessionActivation(preferencesSceneSession, userActivity: userActivity, options: nil, errorHandler: nil)
 	}
+    
+    func loadBookmark(named name: String, urlKey: String) {
+        let bookmarkData = UserDefaults.standard.data(forKey: name)
+        if let bookmarkData = bookmarkData {
+            var stale = false
+            do {
+                let url = try URL(resolvingBookmarkData: bookmarkData, options: .withoutUI, relativeTo: nil, bookmarkDataIsStale: &stale)
+                let success = url.startAccessingSecurityScopedResource()
+                defer {
+                    if success {
+                        //TODO: stop using resource on app exit? url.stopAccessingSecurityScopedResource()
+                    }
+                }
+                
+                if stale {
+                    let newBookmark = try url.bookmarkData(options: .securityScopeAllowOnlyReadAccess)
+                    UserDefaults.standard.set(newBookmark, forKey: name)
+                }
+                
+                UserDefaults.standard.set(url.path, forKey: urlKey)
+            } catch {
+                // TODO: handle error
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 

@@ -13,6 +13,10 @@ struct ContentView: View {
     @State private var threshold: CGFloat = 400.0
     @State private var avatar = "zero1"
     
+    @AppStorage("idleImage1") private var idleImage1 = ""
+    @AppStorage("talkingImage1") private var talkingImage1 = ""
+    @AppStorage("loudImage1") private var loudImage1 = ""
+    
     private func normalizeSoundLevel(_ level: Float) -> CGFloat {
         let level = max(0.2, CGFloat(level) + 50) / 2 // between 0.1 and 25
         
@@ -21,20 +25,20 @@ struct ContentView: View {
     
     private func selectAvatar(fromThreshold1 threshold1: CGFloat, threshold2: CGFloat) -> String {
         if normalizeSoundLevel(mic.level) <= threshold1 {
-            return "zero1"
+            return idleImage1
         } else if normalizeSoundLevel(mic.level) > threshold1 && normalizeSoundLevel(mic.level) <= threshold2 {
-            return "zero2"
+            return talkingImage1
         } else if normalizeSoundLevel(mic.level) > threshold2 {
-            return "zero3"
+            return loudImage1
         } else {
-            return "zero1"
+            return idleImage1
         }
     }
     
     var body: some View {
         HStack {
             VStack {
-                Text("Mic level")
+                Text("Mic level: (\(mic.peak)")
                     .padding()
                 ZStack(alignment: .bottom) {
                     Rectangle()
@@ -47,7 +51,7 @@ struct ContentView: View {
                 }
             }
             ZStack {
-                Image(selectAvatar(fromThreshold1: threshold, threshold2: 600))
+                Image(uiImage: UIImage(contentsOfFile: selectAvatar(fromThreshold1: threshold, threshold2: 600)) ?? UIImage(systemName: "questionmark.folder.fill")!)
                     .interpolation(.none)
                     .resizable()
                     .scaledToFit()
