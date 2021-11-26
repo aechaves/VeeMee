@@ -10,12 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject private var mic = MicMonitor()
     
-    @State private var threshold: CGFloat = 400.0
     @State private var avatar = "zero1"
     
     @AppStorage("idleImage1") private var idleImage1 = ""
     @AppStorage("talkingImage1") private var talkingImage1 = ""
     @AppStorage("loudImage1") private var loudImage1 = ""
+    @AppStorage("talkingThreshold") var talkingThreshold = -160.0
+    @AppStorage("loudTalkingThreshold") var loudTalkingThreshold = 0.0
     
     private func normalizeSoundLevel(_ level: Float) -> CGFloat {
         let level = max(0.2, CGFloat(level) + 50) / 2 // between 0.1 and 25
@@ -23,12 +24,13 @@ struct ContentView: View {
         return CGFloat(level * (800 / 25)) // scaled to max at 800 (our height of our bar)
     }
     
-    private func selectAvatar(fromThreshold1 threshold1: CGFloat, threshold2: CGFloat) -> String {
-        if normalizeSoundLevel(mic.level) <= threshold1 {
+    private func selectAvatar(fromThreshold1 threshold1: Double, threshold2: Double) -> String {
+        let micLevel = Double(mic.level)
+        if micLevel <= threshold1 {
             return idleImage1
-        } else if normalizeSoundLevel(mic.level) > threshold1 && normalizeSoundLevel(mic.level) <= threshold2 {
+        } else if micLevel > threshold1 && micLevel <= threshold2 {
             return talkingImage1
-        } else if normalizeSoundLevel(mic.level) > threshold2 {
+        } else if micLevel > threshold2 {
             return loudImage1
         } else {
             return idleImage1
@@ -38,7 +40,7 @@ struct ContentView: View {
     var body: some View {
         HStack {
             VStack {
-                Text("Mic level: (\(mic.peak)")
+                Text("Mic level")
                     .padding()
                 ZStack(alignment: .bottom) {
                     Rectangle()
@@ -51,7 +53,7 @@ struct ContentView: View {
                 }
             }
             ZStack {
-                Image(uiImage: UIImage(contentsOfFile: selectAvatar(fromThreshold1: threshold, threshold2: 600)) ?? UIImage(systemName: "questionmark.folder.fill")!)
+                Image(uiImage: UIImage(contentsOfFile: selectAvatar(fromThreshold1: talkingThreshold, threshold2: loudTalkingThreshold)) ?? UIImage(systemName: "questionmark.folder.fill")!)
                     .interpolation(.none)
                     .resizable()
                     .scaledToFit()
